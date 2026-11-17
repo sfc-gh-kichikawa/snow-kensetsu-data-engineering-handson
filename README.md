@@ -35,10 +35,39 @@
 
 ## はじめかた
 
-1. Snowsight にログインし、**Projects » Workspaces** を開きます。
-2. このリポジトリのファイルを Workspaces に取り込みます（Git 連携、またはファイルのアップロード）。
-3. ロールを **ACCOUNTADMIN** にして、`sql/00_setup.sql` を開き、すべて実行します（数分かかります）。
-4. `docs/handson_guide.md` の手順に沿って、第1章から進めます。
+### 1. このリポジトリを Workspaces に取り込む
+
+このリポジトリは公開されているので、GitHub のアカウントやトークンは不要です。
+
+1. Snowsight にログインし、左下のユーザーメニューでロールを **ACCOUNTADMIN** にします。
+2. **Projects » Workspaces** の My Workspace で新しい SQL ファイルを開き、次の SQL を実行します。Snowflake が GitHub からファイルを取得するための設定です。
+
+   ```sql
+   USE ROLE ACCOUNTADMIN;
+   CREATE OR REPLACE API INTEGRATION GITHUB_PUBLIC_API
+     API_PROVIDER = git_https_api
+     API_ALLOWED_PREFIXES = ('https://github.com/sfc-gh-kichikawa')
+     ENABLED = TRUE;
+   ```
+
+3. **Projects » Workspaces** を開き、Workspaces のメニューから **From Git repository** を選びます。
+4. **Repository URL** に次の URL を貼り付けます。
+
+   ```
+   https://github.com/sfc-gh-kichikawa/snow-kensetsu-data-engineering-handson
+   ```
+
+5. **API Integration** で `GITHUB_PUBLIC_API` を選びます。
+6. 認証方法で **Public repository** を選び、**Create** を押します。`sql/`、`answers/`、`docs/` が表示されれば完了です。
+
+> 「Public repository」で作ったワークスペースからは、GitHub に push できません。SQL ファイルに追記して保存するのは問題ありません。変更はご自身のワークスペースの中にだけ残ります。
+>
+> 教材が更新されたときは、ワークスペースの **Changes** タブで **Pull** を押すと最新になります。
+
+### 2. 準備スクリプトを実行する
+
+1. ロールが **ACCOUNTADMIN** であることを確かめ、`sql/00_setup.sql` を開いて、すべて実行します（数分かかります）。
+2. `docs/handson_guide.md` の手順に沿って、第1章から進めます。
 
 ## 準備スクリプトが作るもの
 
@@ -65,4 +94,7 @@ DROP RESOURCE MONITOR IF EXISTS HOL_MONITOR;
 DROP ROLE IF EXISTS BRANCH_TOKYO_ROLE;
 DROP ROLE IF EXISTS BRANCH_OSAKA_ROLE;
 DROP ROLE IF EXISTS HR_ROLE;
+DROP API INTEGRATION IF EXISTS GITHUB_PUBLIC_API;
 ```
+
+Git 連携のワークスペースは、Projects » Workspaces の一覧から削除してください。
