@@ -40,7 +40,7 @@
 このリポジトリは公開されているので、GitHub のアカウントやトークンは不要です。
 
 1. Snowsight にログインし、左下のユーザーメニューでロールを **ACCOUNTADMIN** にします。
-2. 左のメニューの **ワークスペース**（英語表示では **Workspaces**）を開き、My Workspace で新しい SQL ファイルを開き、次の SQL を実行します。Snowflake が GitHub からファイルを取得するための設定です。
+2. 左のメニューの **ワークスペース**（英語表示では **Workspaces**）を開きます。**自分のワークスペース**（My Workspace）の **＋ 新規追加**（Add new）で SQL ファイルを作り、次の SQL を実行します。Snowflake が GitHub からファイルを取得するための設定です。
 
    ```sql
    USE ROLE ACCOUNTADMIN;
@@ -50,15 +50,15 @@
      ENABLED = TRUE;
    ```
 
-3. 左のメニューの **ワークスペース** を開き、ワークスペースの切り替えメニューから **From Git repository** を選びます。
-4. **Repository URL** に次の URL を貼り付けます。
+3. ワークスペース一覧の上にある **＋** を押し、**新規作成**（Create new）の中から **Gitワークスペース**（Git workspace）を選びます。
+4. 開いた画面の、リポジトリの URL を入れる欄（Repository URL）に、次の URL を貼り付けます。
 
    ```
    https://github.com/sfc-gh-kichikawa/snow-kensetsu-data-engineering-handson
    ```
 
-5. **API Integration** で `GITHUB_PUBLIC_API` を選びます。
-6. 認証方法で **Public repository** を選び、**Create** を押します。`sql/`、`answers/`、`docs/` が表示されれば完了です。
+5. API インテグレーションの欄（API Integration）で `GITHUB_PUBLIC_API` を選びます。
+6. 認証方法で、公開リポジトリ（Public repository）を選び、作成（Create）を押します。`sql/`、`answers/`、`docs/` が表示されれば完了です。
 
 > 「Public repository」で作ったワークスペースからは、GitHub に push できません。SQL ファイルに追記して保存するのは問題ありません。変更はご自身のワークスペースの中にだけ残ります。
 >
