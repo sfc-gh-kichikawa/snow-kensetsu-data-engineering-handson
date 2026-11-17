@@ -40,7 +40,7 @@
 このリポジトリは公開されているので、GitHub のアカウントやトークンは不要です。
 
 1. Snowsight にログインし、左下のユーザーメニューでロールを **ACCOUNTADMIN** にします。
-2. **Projects » Workspaces** の My Workspace で新しい SQL ファイルを開き、次の SQL を実行します。Snowflake が GitHub からファイルを取得するための設定です。
+2. 左のメニューの **ワークスペース**（英語表示では **Workspaces**）を開き、My Workspace で新しい SQL ファイルを開き、次の SQL を実行します。Snowflake が GitHub からファイルを取得するための設定です。
 
    ```sql
    USE ROLE ACCOUNTADMIN;
@@ -50,7 +50,7 @@
      ENABLED = TRUE;
    ```
 
-3. **Projects » Workspaces** を開き、Workspaces のメニューから **From Git repository** を選びます。
+3. 左のメニューの **ワークスペース** を開き、ワークスペースの切り替えメニューから **From Git repository** を選びます。
 4. **Repository URL** に次の URL を貼り付けます。
 
    ```
@@ -97,4 +97,4 @@ DROP ROLE IF EXISTS HR_ROLE;
 DROP API INTEGRATION IF EXISTS GITHUB_PUBLIC_API;
 ```
 
-Git 連携のワークスペースは、Projects » Workspaces の一覧から削除してください。
+Git 連携のワークスペースは、左のメニューの **ワークスペース** の一覧から削除してください。

@@ -23,7 +23,7 @@
 
 **使うファイル**：`sql/01_first_day.sql`
 
-1. Snowsight の **Projects » Workspaces** で、`sql/01_first_day.sql` を開きます。
+1. Snowsight の左のメニューの **ワークスペース**（英語表示では **Workspaces**）で、`sql/01_first_day.sql` を開きます。
 2. 画面右の CoCo のチャット欄で、次の指示を順に送ります。
 
 **CoCo への指示①**
